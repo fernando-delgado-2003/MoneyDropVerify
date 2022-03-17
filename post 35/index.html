@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+
+
+<body>
+	<style>
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+	body{
+		text-align: center;
+			font-family: 'Poppins', sans-serif;
+	}
+		a{
+			padding: .6rem 1.2rem;
+			background: #FFE596;
+			border-radius: .4rem;
+			text-decoration: none;
+			margin-top: .8rem;
+			display: inline-block;
+			color: #bbb
+		}
+		a.active{
+			background: #F9BC05;
+			color: #000;
+		}
+	</style>
+	<p>Bien, espere <span></span> segundos para hacer click en el botón de abajo para obtener su recompensa</p>
+	<a href="">Recompensa</a>
+	
+
+<script>
+		let link = document.querySelector("a"),
+		time= 13,
+		params = new URLSearchParams(location.search),
+	  id = params.get('id'),
+	  idLink = params.get('idLink');
+	  
+	  link.href=`https://moneydrop.vercel.app/verify/?id=${id}&idlink=${idLink}`;
+    link.style.pointerEvents = 'none';
+
+   const interval = setInterval(function(){
+   	    	document.querySelector("p span").innerHTML= time
+
+    	if( time <= 0){
+    		link.style.pointerEvents = null;
+    		link.classList.add("active");
+        clearInterval(interval);
+        document.querySelector("p").innerHTML ="El enlace ya esta listo";
+    	}
+        time--
+    }, 1000);
+</script>
+<noscript>
+	No tener activado Javascript, afectara tu recompensa
+</noscript>
+</body>
+
+</html>

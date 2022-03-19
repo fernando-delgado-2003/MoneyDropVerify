@@ -36,7 +36,7 @@ https://moneydrop-verify.vercel.app/videos/video%201/?idLink=ar1b9pqhn7r
 	</style>
 	<p class="text">Bien, espere <span></span> segundos para obtener el video de YouTube y recuerde ver el vídeo por lo menos 1 minuto</p>
 	<p>No cierre esta ventana, por que se podria ver afectda su recompensa</p>
-	<a href="" class="link-youtube">Video </a>
+	<a href="" target="_blanck" class="link-youtube">Video </a>
 	<div>
 		<p>
 			Quiere que su video aparezca en nuestra plataforma, puede enviarnos un mensaje al siguiente correo
@@ -69,7 +69,6 @@ https://moneydrop-verify.vercel.app/videos/video%201/?idLink=ar1b9pqhn7r
 				clearInterval(interval);
 				document.querySelector("p").innerHTML = "El enlace ya esta listo";
 				link.addEventListener("click", (e) => {
-					e.preventDefault()
 					let ls = localStorage,
 						fecha = new Date();
 					//https://moneydrop-verify.vercel.app/videos/video+1/?idLink=fq6csuvtbg4&linkYoutube=https://youtu.be/YkT7G623SxI

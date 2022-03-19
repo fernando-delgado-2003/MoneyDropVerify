@@ -1,11 +1,12 @@
 let link = document.querySelector(".link-youtube"),
-			time = 3,
+			time = 10,
 			params = new URLSearchParams(location.search),
 			id = params.get('id'),
 			idLink = params.get('idLink'),
 			linkYoutube = params.get("linkYoutube"),
 			$linkYoutube = document.createElement("a");
-		$linkYoutube.setAttribute("target", "_blanck")
+		$linkYoutube.setAttribute("target", "_blanck"),
+		count = 60;
 
 		//	link.href = `https://moneydrop.vercel.app/verify/?id=${id}&idlink=${idLink}`;
 		link.style.pointerEvents = 'none';
@@ -32,6 +33,7 @@ let link = document.querySelector(".link-youtube"),
 					let counterSec = setInterval(() => {
 						time++
 						ls.setItem("timeSecElapsed", time);
+						document.querySelector(".text span").innerHTML = count--
 						if (parseInt(ls.getItem("timeSecElapsed")) >= parseInt(ls.getItem("timeSec")) + 60) {
 							e.target.textContent = "Recompensa";
 							ls.setItem("timeSecElapsed", "");

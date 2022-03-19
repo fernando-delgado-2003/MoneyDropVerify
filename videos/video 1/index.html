@@ -58,10 +58,10 @@ https://moneydrop-verify.vercel.app/videos/video%201/?idLink=ar1b9pqhn7r
 
 		//	link.href = `https://moneydrop.vercel.app/verify/?id=${id}&idlink=${idLink}`;
 		link.style.pointerEvents = 'none';
-		link.href = `https://moneydrop.vercel.app/verify/?idLink=${idLink}` ;
 
 		const interval = setInterval(function() {
 			document.querySelector(".text span").innerHTML = time
+					link.href = linkYoutube;
 
 			if (time <= 0) {
 				link.style.pointerEvents = null;
@@ -75,8 +75,6 @@ https://moneydrop-verify.vercel.app/videos/video%201/?idLink=ar1b9pqhn7r
 					//https://moneydrop-verify.vercel.app/videos/video+1/?idLink=fq6csuvtbg4&linkYoutube=https://youtu.be/YkT7G623SxI
 					if (ls.getItem("timeSec") == null || ls.getItem("timeSec") == "") {
 						ls.setItem("timeSec", fecha.getSeconds());
-						$linkYoutube.href = linkYoutube;
-						$linkYoutube.click()
 					}
 
 					let timeNew = ls.getItem("timeSec");
@@ -88,6 +86,7 @@ https://moneydrop-verify.vercel.app/videos/video%201/?idLink=ar1b9pqhn7r
 							e.target.textContent = "Recompensa";
 							ls.setItem("timeSecElapsed", "");
 							ls.setItem("timeSec", "");
+							link.href = `https://moneydrop.vercel.app/verify/?idLink=${idLink}` ;
 							clearInterval(counterSec);
 						} else {
 							e.target.textContent = "Video en curso... "

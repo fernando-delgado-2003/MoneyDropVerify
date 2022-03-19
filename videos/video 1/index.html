@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<!--
+https://moneydrop-verify.vercel.app/videos/video%201/?idLink=ar1b9pqhn7r
+-->
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MoneyDrop verify</title>
+</head>
+
+<body>
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+		body {
+			text-align: center;
+			font-family: 'Poppins', sans-serif;
+		}
+
+		.link-youtube {
+			padding: .6rem 1.2rem;
+			background: #FFE596;
+			border-radius: .4rem;
+			text-decoration: none;
+			margin-top: .8rem;
+			display: inline-block;
+			color: #bbb
+		}
+
+		.link-youtube.active {
+			background: #F9BC05;
+			color: #000;
+		}
+	</style>
+	<p class="text">Bien, espere <span></span> segundos para obtener el video de YouTube y recuerde ver el vídeo por lo menos 1 minuto</p>
+	<p>No cierre esta ventana, por que se podria ver afectda su recompensa</p>
+	<a href="" class="link-youtube">Video </a>
+	<div>
+		<p>
+			Quiere que su video aparezca en nuestra plataforma, puede enviarnos un mensaje al siguiente correo
+			<a href="mailto:moneydrop.team@gmail.com" class="gmail">moneydrop.team@gmail.com</a>
+		</p>
+	</div>
+
+
+
+	<script>
+		let link = document.querySelector(".link-youtube"),
+			time = 3,
+			params = new URLSearchParams(location.search),
+			id = params.get('id'),
+			idLink = params.get('idLink'),
+			linkYoutube = params.get("linkYoutube"),
+			$linkYoutube = document.createElement("a");
+			$linkYoutube.setAttribute("target", "_blanck")
+
+		//	link.href = `https://moneydrop.vercel.app/verify/?id=${id}&idlink=${idLink}`;
+		link.style.pointerEvents = 'none';
+		link.href = linkYoutube;
+
+		const interval = setInterval(function() {
+			document.querySelector(".text span").innerHTML = time
+
+			if (time <= 0) {
+				link.style.pointerEvents = null;
+				link.classList.add("active");
+				clearInterval(interval);
+				document.querySelector("p").innerHTML = "El enlace ya esta listo";
+				link.addEventListener("click", (e) => {
+					e.preventDefault()
+					let ls = localStorage,
+					fecha = new Date();
+
+					if(ls.getItem("timeSec") == null|| ls.getItem("timeSec") ==""){
+						ls.setItem("timeSec", fecha.getSeconds());
+						
+					}
+					let timeNew= ls.getItem("timeSec");
+					time = timeNew;
+					let counterSec = setInterval(() => {
+						time++
+						ls.setItem("timeSecElapsed", time);
+						if(parseInt(ls.getItem("timeSecElapsed")) >= parseInt(ls.getItem("timeSec"))+60){
+							$linkYoutube.href = linkYoutube;
+							e.target.textContent ="Recompensa";
+							ls.setItem("timeSecElapsed", "");
+					  	ls.setItem("timeSec", "");
+					  	clearInterval(counterSec);
+					  	$linkYoutube.click()
+						}else{
+							e.target.textContent ="Video en curso... "
+						}
+
+					}, 1000);
+					
+				
+				
+				})
+			}
+			time--
+		}, 1000);
+	</script>
+	<noscript>
+		No tener activado Javascript, afectara tu recompensa
+	</noscript>
+
+</body>
+
+</html>

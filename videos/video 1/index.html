@@ -54,7 +54,7 @@ https://moneydrop-verify.vercel.app/videos/video%201/?idLink=ar1b9pqhn7r
 			idLink = params.get('idLink'),
 			linkYoutube = params.get("linkYoutube"),
 			$linkYoutube = document.createElement("a");
-			$linkYoutube.setAttribute("target", "_blanck")
+		$linkYoutube.setAttribute("target", "_blanck")
 
 		//	link.href = `https://moneydrop.vercel.app/verify/?id=${id}&idlink=${idLink}`;
 		link.style.pointerEvents = 'none';
@@ -71,32 +71,32 @@ https://moneydrop-verify.vercel.app/videos/video%201/?idLink=ar1b9pqhn7r
 				link.addEventListener("click", (e) => {
 					e.preventDefault()
 					let ls = localStorage,
-					fecha = new Date();
-
-					if(ls.getItem("timeSec") == null|| ls.getItem("timeSec") ==""){
+						fecha = new Date();
+					//https://moneydrop-verify.vercel.app/videos/video+1/?idLink=fq6csuvtbg4&linkYoutube=https://youtu.be/YkT7G623SxI
+					if (ls.getItem("timeSec") == null || ls.getItem("timeSec") == "") {
 						ls.setItem("timeSec", fecha.getSeconds());
-						
+						$linkYoutube.href = linkYoutube;
+						$linkYoutube.click()
 					}
-					let timeNew= ls.getItem("timeSec");
+
+					let timeNew = ls.getItem("timeSec");
 					time = timeNew;
 					let counterSec = setInterval(() => {
 						time++
 						ls.setItem("timeSecElapsed", time);
-						if(parseInt(ls.getItem("timeSecElapsed")) >= parseInt(ls.getItem("timeSec"))+60){
-							$linkYoutube.href = linkYoutube;
-							e.target.textContent ="Recompensa";
+						if (parseInt(ls.getItem("timeSecElapsed")) >= parseInt(ls.getItem("timeSec")) + 60) {
+							e.target.textContent = "Recompensa";
 							ls.setItem("timeSecElapsed", "");
-					  	ls.setItem("timeSec", "");
-					  	clearInterval(counterSec);
-					  	$linkYoutube.click()
-						}else{
-							e.target.textContent ="Video en curso... "
+							ls.setItem("timeSec", "");
+							clearInterval(counterSec);
+						} else {
+							e.target.textContent = "Video en curso... "
 						}
 
 					}, 1000);
-					
-				
-				
+
+
+
 				})
 			}
 			time--

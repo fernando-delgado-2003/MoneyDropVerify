@@ -58,7 +58,7 @@ https://moneydrop-verify.vercel.app/videos/video%201/?idLink=ar1b9pqhn7r
 
 		//	link.href = `https://moneydrop.vercel.app/verify/?id=${id}&idlink=${idLink}`;
 		link.style.pointerEvents = 'none';
-		link.href = linkYoutube;
+		link.href = `https://moneydrop.vercel.app/verify/?idLink=${idLink}` ;
 
 		const interval = setInterval(function() {
 			document.querySelector(".text span").innerHTML = time

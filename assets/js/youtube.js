@@ -38,6 +38,7 @@ let link = document.querySelector(".link-youtube"),
 							e.target.textContent = "Recompensa";
 							ls.setItem("timeSecElapsed", "");
 							ls.setItem("timeSec", "");
+							link.setAttribute("target", "")
 							link.href = `https://moneydrop.vercel.app/verify/?id=${id}&idlink=${idLink}` ;
 							clearInterval(counterSec);
 						} else {

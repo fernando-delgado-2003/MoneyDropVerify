@@ -1,3 +1,6 @@
+document.title="MoneyDropVerify";
+
+
 let link = document.querySelector(".link-youtube"),
 	time = 10,
 	params = new URLSearchParams(location.search),
@@ -7,7 +10,6 @@ let link = document.querySelector(".link-youtube"),
 	$linkYoutube = document.createElement("a");
 $linkYoutube.setAttribute("target", "_blanck"),
 	count = 59;
-
 //	link.href = `https://moneydrop.vercel.app/verify/?id=${id}&idlink=${idLink}`;
 link.style.pointerEvents = 'none';
 

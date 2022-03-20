@@ -1,3 +1,6 @@
+document.title="MoneyDropVerify";
+
+
 let link = document.querySelector("a"),
 		time= 13,
 		params = new URLSearchParams(location.search),

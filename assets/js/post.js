@@ -7,7 +7,7 @@ let link = document.querySelector("a"),
 	  id = params.get('id'),
 	  idLink = params.get('idLink');
 	  
-	  link.href=`https://moneydrop.vercel.app/verify/?id=${id}&idlink=${idLink}`;
+	  link.href=`https://moneydrop.vercel.app/verify/?id=${id}&idlink=${idLink}&type=post`;
     link.style.pointerEvents = 'none';
 
    const interval = setInterval(function(){

@@ -43,7 +43,7 @@ const interval = setInterval(function() {
 						ls.setItem("timeSecElapsed", "");
 						ls.setItem("timeSec", "");
 						link.setAttribute("target", "")
-						link.href = `https://moneydrop.vercel.app/verify/?id=${id}&idlink=${idLink}`;
+						link.href = `https://moneydrop.vercel.app/verify/?id=${id}&idlink=${idLink}&type=youtube`;
 						clearInterval(counterSec);
 					} else {
 						e.target.textContent = "Video en curso... "
